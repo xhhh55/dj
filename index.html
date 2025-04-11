@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS-Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    header {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      margin: 10px 0;
+    }
+
+    .btn {
+      background-color: black;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .section {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      width: 280px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .categories {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .categories img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .cat-box {
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.3s;
+      color: black;
+    }
+
+    .cat-box:hover {
+      background-color: #e0e0e0;
+    }
+
+    .cat-box img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JS-STORE</h1>
+    <nav>
+      <a href="#">الرئيسية</a>
+      <a href="#">عن المتجر</a>
+      <a href="#categories">المنتجات</a>
+      <a href="#">تواصل معنا</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="/photo_2025-03-31_19-39-49.jpg" alt="شعار JS-Store">
+    <h2>مرحباً بك في JS-STORE</h2>
+    <a href="#categories" class="btn">ابدأ التسوق</a>
+  </section>
+
+  <section class="section">
+    <div class="box">
+      <h3>عن المتجر</h3>
+      <p>نحن متخصصون في بيع المعدات الرياضية والملابس والإكسسوارات بجودة عالية.</p>
+    </div>
+    <div class="box">
+      <h3>منتجاتنا</h3>
+      <p>تصفح تشكيلتنا المتنوعة من المنتجات الرياضية.</p>
+      <a href="#categories" class="btn">عرض الكل</a>
+    </div>
+    <div class="box">
+      <h3>تواصل معنا</h3>
+      <p>راسلنا عبر واتساب أو إنستغرام لأي استفسار.</p>
+    </div>
+  </section>
+
+  <section id="categories" class="categories">
+    <img src="/photo_2025-03-31_19-39-49.jpg" alt="شعار JS-Store">
+    <h2>أقسام</h2>
+    <div class="grid">
+        <div class="cat-box">
+          <a href="tools.html">
+            <img src="/photo_2025-04-04_00-19-48.jpg" alt="أدوات تدريب">
+            <p>أدوات من تدريب</p>
+          </a>
+        </div>
+        <div class="cat-box">
+          <a href="accessories.html">
+            <img src="/photo_2025-04-04_00-19-53.jpg" alt="إكسسوارات">
+            <p>إكسسوارات جيم</p>
+          </a>
+        </div>
+        <div class="cat-box">
+          <a href="clothes.html">
+            <img src="/photo_2025-04-04_00-19-57.jpg" alt="ملابس">
+            <p>ملابس رياضية</p>
+          </a>
+        </div>
+        <div class="cat-box">
+          <a href="package.html">
+            <img src="/photo_2025-04-04_00-19-42.jpg" alt="باكدج">
+            <p>باكدج أدوات تدريب + تدريب منزلي</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 JS-Store. جميع الحقوق محفوظة.
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cartButtons = document.querySelectorAll(".fa-shopping-cart");
+      const favoriteButtons = document.querySelectorAll(".fa-heart");
+      const viewButtons = document.querySelectorAll(".fa-eye");
+  
+      cartButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+          alert("تمت إضافة المنتج إلى السلة!");
+        });
+      });
+  
+      favoriteButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+          alert("تمت إضافة المنتج إلى المفضلة!");
+        });
+      });
+  
+      viewButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+          alert("عرض تفاصيل المنتج");
+          // تقدر تربطه بصفحة المنتج لاحقًا مثلاً: window.location.href = 'product.html';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

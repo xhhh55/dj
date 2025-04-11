@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>سلة المشتريات - JS-Store</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      direction: rtl;
+      background-color: #fff;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cart-items {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .item {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>سلة المشتريات</h1>
+  <div class="cart-items" id="cartItems"></div>
+
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartContainer = document.getElementById("cartItems");
+    if (cartItems.length === 0) {
+      cartContainer.innerHTML = "<p style='text-align:center;'>السلة فارغة.</p>";
+    } else {
+      cartItems.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerHTML = `
+          <img src="${item.image}" alt="">
+          <div>
+            <h3>${item.name}</h3>
+            <p>السعر: ${item.price}</p>
+          </div>
+       ` ;
+        cartContainer.appendChild(div);
+      });
+    }
+  </script>
+
+</body>
+</html>
